@@ -1,0 +1,89 @@
+.comparison {
+
+	&-container {
+		position: relative;
+		//Make sure the container doesn't stretch horizontally beyond its content:
+		display: table;
+
+		overflow: hidden;
+	}
+
+	&-lhs, &-lhs-wrapper {
+		position: absolute;
+		top:0; left:0;
+	}
+	&-lhs {
+		//For inline elements, such as <img>
+		display: block;
+		max-width: none;
+	}
+	&-lhs-wrapper {
+		height: 100%;
+		width: 50%;
+		overflow: hidden;
+	}
+
+	&-dragger {
+		position: absolute;
+		top:0; left:50%;
+		width: 0;
+		height: 100%;
+		cursor: ew-resize;
+		
+		&::before {
+			content: '';
+			display: block;
+			width: .4em;
+			height: 100%;
+			margin-left: -.2em;
+			background: rgba(white, .3);
+		}
+		
+		&::after {
+			$button-size: 2.2em;
+
+			content: '◀ ▶';
+			display: block;
+			position: absolute;
+			top: 50%; left: 50%;
+
+			width: $button-size;
+			height: $button-size;
+			margin: $button-size/-2;
+			border-radius: 100%;
+
+			background: white;
+			text-align: center;
+			line-height: $button-size;
+			white-space: nowrap;
+		}
+	}
+}
+
+
+/* Page layout - not important */
+
+body {
+	font-family: Georgia, sans-serif;
+	//Weird scrollbar flickering in Chrome when the page content exactly fills the page:
+	overflow-y: scroll;
+}
+img {
+	display: block;
+	width: 100%;
+}
+.caption {
+	display: inline-block;
+	position: absolute;
+	bottom: .5em; right: .5em;
+	padding: .5em;
+	background: rgba(white, .7);
+}
+.comparison-container {
+	//width: 100%;
+	max-width: 1000px;
+	margin: auto;
+}
+.comparison-lhs .caption {
+	right: auto; left: .5em;
+}
