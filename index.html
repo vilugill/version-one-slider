@@ -1,21 +1,19 @@
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<body>
-  <div class='container'>
-    <div class='img background-img'></div>
-    <div class='img foreground-img'></div>
-    <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
-    <div class='slider-button'></div>
-  </div>
-</body>
-<script>
-  $("#slider").on("input change", (e)=>{
-  const sliderPos = e.target.value;
-  // Update the width of the foreground image
-  $('.foreground-img').css('width', `${sliderPos}%`)
-  // Update the position of the slider button
-  $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`)
-});
-</script>
+h1>Image Comparison Slider</h1>
+
+<h3> Compare images and any html content</h3>
+<div class="comparison-container">
+	<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/751678/marioPhoto-2.jpg" alt="marioPhoto 2" />
+	<div class="caption">And I am the <strong>after</strong> image.</div>
+
+	<div class="comparison-lhs">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/751678/marioPhoto-1.jpg" alt="marioPhoto 1" />
+		<div class="caption">I am the <strong>before</strong> image.</div>
+	</div>
+</div>
+
+<h3> Compare more than two images</h3>
+<div class="comparison-container">
+	<img src="https://programming.enthuses.me/assets/codepen/sin-city/scene-comp-3.jpg" alt="" />       
+	<img class="comparison-lhs" data-comparison-splitter="80%" src="https://programming.enthuses.me/assets/codepen/sin-city/scene-comp-2.jpg" alt="" />
+	<img class="comparison-lhs" data-comparison-splitter="60%" src="https://programming.enthuses.me/assets/codepen/sin-city/scene-comp-1.jpg" alt="" />
+</div>
