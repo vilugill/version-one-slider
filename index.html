@@ -1,3 +1,84 @@
+<head>
+<style>
+	@charset "UTF-8";
+.comparison-container {
+	position: relative;
+	display: table;
+	overflow: hidden;
+}
+.comparison-lhs, .comparison-lhs-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.comparison-lhs {
+	display: block;
+	max-width: none;
+}
+.comparison-lhs-wrapper {
+	height: 100%;
+	width: 50%;
+	overflow: hidden;
+}
+.comparison-dragger {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 100%;
+	cursor: ew-resize;
+}
+.comparison-dragger::before {
+	content: '';
+	display: block;
+	width: .4em;
+	height: 100%;
+	margin-left: -.2em;
+	background: rgba(255, 255, 255, 0.3);
+}
+.comparison-dragger::after {
+	content: '◀ ▶';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2.2em;
+	height: 2.2em;
+	margin: -1.1em;
+	border-radius: 100%;
+	background: white;
+	text-align: center;
+	line-height: 2.2em;
+	white-space: nowrap;
+}
+body {
+	font-family: Georgia, sans-serif;
+	overflow-y: scroll;
+}
+img {
+	display: block;
+	width: 100%;
+}
+.caption {
+	display: inline-block;
+	position: absolute;
+	bottom: .5em;
+	right: .5em;
+	padding: .5em;
+	background: rgba(255, 255, 255, 0.7);
+}
+.comparison-container {
+	max-width: 1000px;
+	margin: auto;
+}
+.comparison-lhs .caption {
+	right: auto;
+	left: .5em;
+}
+
+	</style>
+</head>
+<body>
 <h1>Image Comparison Slider</h1>
 
 <h3> Compare images and any html content</h3>
@@ -17,3 +98,4 @@
 	<img class="comparison-lhs" data-comparison-splitter="80%" src="https://programming.enthuses.me/assets/codepen/sin-city/scene-comp-2.jpg" alt="" />
 	<img class="comparison-lhs" data-comparison-splitter="60%" src="https://programming.enthuses.me/assets/codepen/sin-city/scene-comp-1.jpg" alt="" />
 </div>
+</body>
